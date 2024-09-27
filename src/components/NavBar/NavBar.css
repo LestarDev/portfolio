@@ -1,0 +1,100 @@
+nav{
+    width: calc(100vw - (2rem * var(--space-padding)));
+    padding: 0 calc(1rem * var(--space-padding));
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+nav ul > div{
+    min-width: 50%;
+    display: flex;
+}
+
+nav ul > div li:not(:first-child){
+    margin-left: calc(0.5rem * var(--space-padding));
+}
+
+nav span{
+    display: none;
+}
+
+nav input[type="checkbox"]{
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+@media only screen and (max-width: 720px) {
+    .primary{
+        display: none;
+    }
+
+    nav ul div{
+        transform: translateX(5000px);
+        transition: all 1s;
+    }
+
+    nav ul div:has(+ li input:checked){
+        transform: translateX(0);
+    }
+
+    nav ul > li{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 20px;
+    }
+
+    nav span{
+        display: block;
+        width: 2px;
+        height: 40px;
+        background: white;
+        transform: rotate(90deg) translateX(calc(10px * var(--menu-position)));
+        position: absolute;
+        transition: all 1s;
+    }
+
+    
+
+    nav input:checked ~ label span{
+        transform: rotate(calc(90deg + (45deg * var(--menu-position)))) translateX(calc(1px * var(--menu-position)));
+    }
+
+    @keyframes dot {
+        from{
+            transform: rotate(calc(90deg + (45deg * var(--menu-position)))) translateX(calc(1px * var(--menu-position))) scale(1);
+        }
+        to{
+            transform: rotate(calc(90deg + (45deg * var(--menu-position)))) translateX(calc(1px * var(--menu-position))) scale(0.1);
+        }
+    }
+
+    @keyframes revDot {
+        
+        from{
+            transform: rotate(calc(90deg + (45deg * var(--menu-position)))) translateX(calc(1px * var(--menu-position))) scale(0.1);
+        }
+        to{
+            transform: rotate(calc(90deg + (45deg * var(--menu-position)))) translateX(calc(1px * var(--menu-position))) scale(1);
+        }
+    }
+
+    nav input:checked ~ label span[style*="0"]{
+        animation-name: dot;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    nav label span[style*="0"]{
+        animation-name: revDot;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    
+}

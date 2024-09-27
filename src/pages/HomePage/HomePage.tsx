@@ -1,11 +1,13 @@
 import ChangePageButton from "../../components/ChangPageButton/ChangePagButton"
+import NavBar from "../../components/NavBar/NavBar"
 import PageType from "../../types/PageType"
 
-const MainPage = ({setPage}:{setPage: PageType}) => {
+const MainPage = ({setPage, currentPage}:{setPage: PageType, currentPage: number}) => {
 
-    return <div>
+    return <>
+        <NavBar setPage={setPage} currentPage={currentPage} />
         <ChangePageButton setPage={setPage} pageName="Login" />
-    </div>
+    </>
 }
 
 export default MainPage
