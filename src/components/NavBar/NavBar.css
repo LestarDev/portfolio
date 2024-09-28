@@ -33,20 +33,24 @@ nav input[type="checkbox"]{
         display: none;
     }
 
+    nav ul > li {
+        width: 100%;
+    }
+
     nav ul div{
-        transform: translateX(5000px);
+        transform: scale(0) translateX(100vw);
         transition: all 1s;
     }
 
     nav ul div:has(+ li input:checked){
-        transform: translateX(0);
+        transform: scale(1) translateX(0);
     }
 
     nav ul > li{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 20px;
+        width: 40px;
     }
 
     nav span{
@@ -62,7 +66,7 @@ nav input[type="checkbox"]{
     
 
     nav input:checked ~ label span{
-        transform: rotate(calc(90deg + (45deg * var(--menu-position)))) translateX(calc(1px * var(--menu-position)));
+        transform: rotate(calc(45deg * var(--menu-position))) translateX(calc(1px * var(--menu-position)));
     }
 
     @keyframes dot {
