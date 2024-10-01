@@ -1,11 +1,8 @@
-import PageType, { getPages, pages } from "../../types/PageType"
+import PageType, { getPages, pages, SetPageType } from "../../types/PageType"
 import ChangePageButton from "../ChangPageButton/ChangePagButton"
 import "./NavBar.css"
 
-const NavBar = ({setPage, currentPage}:{
-    setPage: PageType,
-    currentPage: number
-}) => {
+const NavBar = ({setPage, currentPage}:PageType) => {
 
     return <nav>
         <ul>

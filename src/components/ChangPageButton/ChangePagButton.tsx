@@ -1,7 +1,7 @@
-import PageType, { getPages, pagePossibleNames } from "../../types/PageType"
+import PageType, { getPages, pagePossibleNames, SetPageType } from "../../types/PageType"
 
 type ChangeButtonType = {
-    setPage: PageType,
+    setPage: SetPageType,
     pageName: pagePossibleNames,
     isPrimary?: boolean
 }
